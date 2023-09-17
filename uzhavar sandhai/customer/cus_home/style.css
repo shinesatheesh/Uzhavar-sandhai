@@ -1,0 +1,103 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins&display=swap');
+*{
+    margin: 0;
+    padding:0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+
+}
+nav{
+    width: 100%;
+    position:sticky !important;
+    left:0;
+    top:0;
+    z-index:10;
+    background: rgb(11, 105, 11);
+}
+.navbar-brand{
+    font-weight: 600;
+    color: white !important;
+}
+.nav-link{
+    color: white !important;
+    border-bottom: 1px solid transparent;
+}
+
+.nav-link:hover{
+    border-bottom: 1px solid white; 
+}
+section{
+    width: 100%;
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+/* Home Section*/
+#carouselExampleSlidesOnly{
+    
+    background:linear-gradient(rgba(0,0,0,.1),rgba(0,0,0,.3)),url("final.jpg");
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    flex-direction: column;
+}
+
+#carouselExampleSlidesOnly h1{
+    font-size:100px;
+    color:whitesmoke;
+    letter-spacing: 1px;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    text-shadow:0px 1px 0px white,
+                0px 2px 0px white,
+                0px 3px 0px white,
+                0px 4px 0px white,
+                0px 5px 0px white,
+                0px 6px 0px white,
+                0px 7px 0px white;
+}
+
+/*******about********/
+
+#about{
+         background:hsl(135, 86%, 57%);
+}
+
+#about h1{
+    font-weight: 800;
+    font-size: 50px;
+    color:white;
+}
+#about p{
+    color:white;
+}
+
+/* ***categories*** */
+#categories{
+background:#e5e5e5;
+
+}
+
+#categories h1{
+            font-size: 50px;
+            letter-spacing: 2px;
+            font-weight: 700;
+}
+#categories img{
+    width: 200px;
+    height: 200px;
+}
+
+.card{
+    width: 250px;
+    height:250px;
+    background:#e5e5e5 !important;
+    border:none !important;
+    box-shadow: 15px 20px 20px rgba(0,0,0,.3),
+                inset 4px 4px 10px white;
+    border-radius: 20px !important;
+    overflow: hidden;
+    justify-content: center;
+    align-items: center;
+    margin:20px 60px;
+}

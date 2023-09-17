@@ -1,0 +1,97 @@
+<?php session_start();?>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>update product</title>
+    <link rel="stylesheet" href="style2.css" >
+</head>
+
+<style>
+
+    body{
+        background-image: url("final.jpg");
+        background-repeat: no-repeat;
+        background-attachment: fixed;
+        background-size: cover;
+        background-color: rgba(0,0,0,0.25);
+    }
+
+    .register label{
+        width: 150px;
+        display: inline-block;
+    }
+
+
+</style>
+<body>
+  
+
+<div class="container">
+        <div class="admin-product-form-container">
+            <?php
+             $conn=mysqli_connect("localhost","root","","uzhavar");
+
+             $productname=$_GET['productname'];
+             $query="SELECT * FROM product WHERE productname='$productname'";
+             $query_run=mysqli_query($conn,$query);
+             if(mysqli_num_rows($query_run)>0)
+             {
+               foreach($query_run as $row)
+               {
+                 
+            ?>
+
+                <form action="connect.php" class="form-area" method="POST" enctype="multipart/form-data">
+
+                <input type="hidden" name="productname" value="<?php echo $row['productname']; ?>" />
+                <h1>Update product</h1>
+                <table class="register">
+                <tr>
+                <td><label>Product Name:</label></td>
+                <td><input type="text" placeholder="enter product name" name="productname" value="<?php echo $row['productname']; ?>" class="box"></td>
+                </tr>
+                <br>
+                <tr>
+                    <td><label>Product quantity:</label></td>
+                    <td><input type="number" placeholder="enter quantity" name="produtqty" value="<?php echo $row['produtqty']; ?>" class="box"></td>
+                    </tr><br>
+                <tr>
+                <td><label>Product Price:</label></td>
+                <td><input type="number" placeholder="enter product price" name="productprice" value="<?php echo $row['productprice']; ?>" class="box"></td>
+                </tr>
+                <br>
+                <tr>
+                    <td><label for="descriptiion">Description:</label></td>
+                    <td><input type="text" id="description" placeholder="product description" name="description" value="<?php echo $row['description']; ?>" class="new"></td>
+                    </tr>
+                <tr>
+                <td><label>Date:</label></td>
+                <td><input type="date" placeholder="enter date" name="date" value="<?php echo $row['date']; ?>" class="box"></td>
+                </tr>
+                <br>
+                <tr>
+                <td><label>Product Image:</label></td>
+                <td><input type="file" name="my_image"  class="box"></td>
+                   <td> <input type="hidden" name="old-image" value="<?php echo $row['img']; ?>"></td>
+                </tr>
+                <br>
+                <tr>
+                <td></td>
+                <td><img src="<?php echo "upload/".$row['img'];?>" width="100px"></td>
+                </tr>
+            </table>
+            <input type="submit" class="btn" name="updateProduct" value="updateProduct">
+           </form>
+
+
+            <?php
+               }
+             }
+             else{
+                   echo "No record available";
+             }
+            ?>
+            
